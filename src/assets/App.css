@@ -1,0 +1,15 @@
+body {
+  padding: 10px;
+}
+
+footer > a > i.fa {
+  font-size: 5em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media (min-width:600px) { 
+  .main-column {
+    min-width: 500px;
+  }
+}
