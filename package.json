@@ -6,9 +6,12 @@
     "bulma": "^0.1.2",
     "chai": "^3.5.0",
     "enzyme": "^2.4.1",
+    "jest": "^15.1.1",
+    "nock": "^8.0.0",
     "react-addons-test-utils": "^15.3.1",
     "react-scripts": "0.4.3",
-    "sinon": "^1.17.6"
+    "sinon": "^1.17.6",
+    "superagent": "^2.3.0"
   },
   "dependencies": {
     "react": "^15.3.1",

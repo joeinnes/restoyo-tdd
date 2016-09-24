@@ -12,7 +12,7 @@ class Card extends Component {
       <div className="card is-fullwidth" id={id}>
         <div className="card-image">
           <figure className="image is-square">
-            <img src={image} />
+            <img src={image} alt={data.title} />
           </figure>
         </div>
 

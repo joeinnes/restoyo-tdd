@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import Card from '../src/components/Card.js';
+import Card from '../Card.js';
 
 describe('a card', () => {
   it('renders without crashing', () => {
@@ -16,6 +16,16 @@ describe('a card', () => {
     const wrapper = shallow(<Card data={data} />);
     const test = <p className="title is-5">Test</p>;
     expect(wrapper.contains(test)).toEqual(true);
+  });
+
+  it('displays an arbitrary title when this is passed to it', () => {
+    const randomString = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+    const data = {
+      title: randomString
+    };
+    const expectedResult = <p className="title is-5">{randomString}</p>;
+    const wrapper = shallow(<Card data={data}/>);
+    expect(wrapper.contains(expectedResult)).toEqual(true);
   });
 
   it('renders the description prop in a p tag', () => {
@@ -40,11 +50,12 @@ describe('a card', () => {
 
   it('renders an image with the url provided', () => {
     const data = {
-      image: "http://placehold.it/200x200"
+      image: "http://placehold.it/200x200",
+      title: "Test"
     };
     const wrapper = shallow(<Card data={data} />);
-    const test = <img src="http://placehold.it/200x200" />
-    expect(wrapper.contains(test)).toEqual(true); 
+    const test = <img src="http://placehold.it/200x200" alt={data.title} />
+    expect(wrapper.contains(test)).toEqual(true);
   });
 
   it('can be found using the id passed to it', () => {
@@ -52,6 +63,6 @@ describe('a card', () => {
       id: "abc123"
     };
     const wrapper = shallow(<Card data={data} />);
-    expect(wrapper.find('#abc123')).toBeTruthy(); 
+    expect(wrapper.find('#abc123')).toBeTruthy();
   });
 });
